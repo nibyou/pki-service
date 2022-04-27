@@ -5,9 +5,8 @@ import {
   RoleGuard,
   AuthGuard,
 } from 'nest-keycloak-connect';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import { APP_GUARD } from '@nestjs/core';
-dotenv.config();
 
 @Module({
   imports: [
