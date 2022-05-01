@@ -16,6 +16,11 @@ import { APP_GUARD } from '@nestjs/core';
       clientId: process.env.KEYCLOAK_CLIENT,
       secret: process.env.KEYCLOAK_SECRET,
       // Secret key of the client taken from keycloak server
+      multiTenant: {
+        realmResolver: () => process.env.KEYCLOAK_REALM,
+        realmSecretResolver: () => process.env.KEYCLOAK_SECRET,
+      },
+      logLevels: ['verbose'],
     }),
   ],
   providers: [

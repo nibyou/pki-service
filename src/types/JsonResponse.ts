@@ -14,7 +14,7 @@ export class JsonResponse {
   @ApiPropertyOptional({
     description: 'Error, if thrown',
   })
-  public error: Error;
+  public error: any;
 
   @ApiProperty({
     required: true,
@@ -32,7 +32,9 @@ export class JsonResponse {
   }
 
   public setError(error: Error): JsonResponse {
-    this.error = error;
+    this.error = {
+      message: error.message,
+    };
     return this;
   }
 

@@ -1,9 +1,10 @@
 import { Controller, Get, HttpCode } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { JsonResponse } from './types/JsonResponse';
 import { Public } from 'nest-keycloak-connect';
 
+@ApiTags('Health')
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}

@@ -17,9 +17,12 @@ import 'dotenv/config';
   app.enableCors(corsOptionsCallback);
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Nibyou Microservice')
-    .setDescription('Microservice Description')
+    .setTitle('Nibyou PKI Service')
+    .setDescription(
+      'The Nibyou PKI (Public Key Infrastructure) Service API  allows Nibyou users to share their public RSA keys with other users.',
+    )
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api', app, document);
