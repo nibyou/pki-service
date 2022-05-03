@@ -604,7 +604,7 @@
     webpack "5.71.0"
     webpack-node-externals "3.0.0"
 
-"@nestjs/common@^8.0.0":
+"@nestjs/common@^8.0.0", "@nestjs/common@^8.4.4":
   version "8.4.4"
   resolved "https://registry.npmjs.org/@nestjs/common/-/common-8.4.4.tgz"
   integrity sha512-QHi7QcgH/5Jinz+SCfIZJkFHc6Cch1YsAEGFEhi6wSp6MILb0sJMQ1CX06e9tCOAjSlBwaJj4PH0eFCVau5v9Q==
@@ -614,7 +614,7 @@
     tslib "2.3.1"
     uuid "8.3.2"
 
-"@nestjs/core@^8.0.0":
+"@nestjs/core@^8.0.0", "@nestjs/core@^8.4.4":
   version "8.4.4"
   resolved "https://registry.npmjs.org/@nestjs/core/-/core-8.4.4.tgz"
   integrity sha512-Ef3yJPuzAttpNfehnGqIV5kHIL9SHptB5F4ERxoU7pT61H3xiYpZw6hSjx68cJO7cc6rm7/N+b4zeuJvFHtvBg==
@@ -670,6 +670,18 @@
   dependencies:
     optional "0.1.4"
     tslib "2.3.1"
+
+"@nibyou/keycloak@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nibyou/keycloak/-/keycloak-1.0.0.tgz#8b28ef80c5c64d266d3f864bb999bd13dd17475b"
+  integrity sha512-DqS6qK8RQ8nvWz562d5X0BeNVKYvmk8W+riBVGzn9Opmj/Z4Pu1VvUaIoD07q9JmKfT63V3V9pKoL7kPTvvIKw==
+  dependencies:
+    "@nestjs/common" "^8.4.4"
+    "@nestjs/core" "^8.4.4"
+    "@types/node" "^17.0.31"
+    dotenv "^16.0.0"
+    keycloak-connect "^15.1.1"
+    nest-keycloak-connect "^1.8.3"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -891,6 +903,11 @@
   version "16.11.27"
   resolved "https://registry.npmjs.org/@types/node/-/node-16.11.27.tgz"
   integrity sha512-C1pD3kgLoZ56Uuy5lhfOxie4aZlA3UMGLX9rXteq4WitEZH6Rl80mwactt9QG0w0gLFlN/kLBTFnGXtDVWvWQw==
+
+"@types/node@^17.0.31":
+  version "17.0.31"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.31.tgz#a5bb84ecfa27eec5e1c802c6bbf8139bdb163a5d"
+  integrity sha512-AR0x5HbXGqkEx9CadRH3EBYx/VkiUgZIhP4wvPn/+5KIsgpNoyFaRlVe0Zlx9gRtg8fA06a9tskE2MSN7TcG4Q==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -3684,6 +3701,15 @@ jws@^3.2.2:
   dependencies:
     jwa "^1.4.1"
     safe-buffer "^5.0.1"
+
+keycloak-connect@^15.1.1:
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/keycloak-connect/-/keycloak-connect-15.1.1.tgz#cb6f937410eda50c02844cb1224f845b313c0f3c"
+  integrity sha512-vbCEiEqPFz5NKiX1/j0Et2KUj3K2bKIR90HOTSSRqcS3tj/6rGSE42Z4Lci1zcGgArf/PTAsjNe4/hb/gFRFFg==
+  dependencies:
+    jwk-to-pem "^2.0.0"
+  optionalDependencies:
+    chromedriver latest
 
 keycloak-connect@^18.0.0:
   version "18.0.0"
