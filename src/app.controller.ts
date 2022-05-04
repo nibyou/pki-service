@@ -1,7 +1,7 @@
 import { Controller, Get, HttpCode } from '@nestjs/common';
 import { AppService } from './app.service';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { JsonResponse } from './types/JsonResponse';
+import { JsonResponse } from '@nibyou/types';
 import { Public } from 'nest-keycloak-connect';
 
 @ApiTags('Health')

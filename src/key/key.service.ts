@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import Redis from 'ioredis';
 import { RedisService } from '@liaoliaots/nestjs-redis';
-import { AuthUser } from '../types/AuthUser';
+import { AuthUser } from '@nibyou/types';
 
 @Injectable()
 export class KeyService {

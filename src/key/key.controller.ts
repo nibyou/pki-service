@@ -7,7 +7,6 @@ import {
   Post,
 } from '@nestjs/common';
 import { KeyService } from './key.service';
-import { JsonResponse } from '../types/JsonResponse';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -17,7 +16,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { AuthenticatedUser, Public } from 'nest-keycloak-connect';
-import { AuthUser } from '../types/AuthUser';
+import { AuthUser, JsonResponse } from '@nibyou/types';
 import { SetKeyDto } from './dtos/set-key.dto';
 
 @ApiBearerAuth()
