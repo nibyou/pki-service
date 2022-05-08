@@ -5,7 +5,8 @@ WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 
-RUN npm ci
+RUN npm install -g -s --no-progress yarn
+RUN yarn install --immutable --immutable-cache
 
 COPY . .
 
