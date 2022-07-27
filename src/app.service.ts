@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { JsonResponse } from './types/JsonResponse';
+import { JsonResponse } from '@nibyou/types';
 
 @Injectable()
 export class AppService {
@@ -11,7 +11,9 @@ export class AppService {
       const uptimeInDays = Math.floor(uptimeInHours / 24);
       uptimeInHours = uptimeInHours % 24;
       uptimeInMinutes = uptimeInMinutes % 60;
-      return `${uptimeInDays}d ${uptimeInHours}h ${uptimeInMinutes}m ${uptimeInSeconds.toFixed(3)}s`;
+      return `${uptimeInDays}d ${uptimeInHours}h ${uptimeInMinutes}m ${uptimeInSeconds.toFixed(
+        3,
+      )}s`;
     };
 
     return new JsonResponse()

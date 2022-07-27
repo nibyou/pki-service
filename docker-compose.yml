@@ -1,0 +1,28 @@
+networks:
+  my-net:
+
+volumes:
+  redis:
+
+services:
+  node:
+    container_name: node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - my-net
+    ports:
+      - '3000:3000'
+    tty: true
+
+  redis:
+    container_name: redis
+    image: redis:3.2
+    networks:
+      - my-net
+    volumes:
+      - redis:/var/lib/redis
+    tty: true
+    ports:
+      - "6379:6379"

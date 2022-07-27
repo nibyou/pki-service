@@ -6,15 +6,7 @@ import 'dotenv/config';
 (async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const corsOptionsCallback = (req, callback) => {
-    const corsOptions = { origin: false, credentials: true };
-    if (process.env.CORS_ORIGINS.split(',').includes(req.headers.origin)) {
-      corsOptions.origin = true;
-    }
-    callback(null, corsOptions);
-  };
-
-  app.enableCors(corsOptionsCallback);
+  app.enableCors();
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Nibyou PKI Service')
@@ -27,5 +19,5 @@ import 'dotenv/config';
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api', app, document);
 
-  return app.listen(process.env.PORT || 3000);
+  return app.listen(process.env.PORT || 3000, '0.0.0.0');
 })();
