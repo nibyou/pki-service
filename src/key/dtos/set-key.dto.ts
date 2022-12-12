@@ -1,3 +1,7 @@
 export class SetKeyDto {
-  readonly value: string;
+  readonly key: string;
+}
+
+export class KeySetDto {
+  readonly key: string;
 }

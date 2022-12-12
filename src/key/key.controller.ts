@@ -17,7 +17,8 @@ import {
 } from '@nestjs/swagger';
 import { AuthenticatedUser, Public } from 'nest-keycloak-connect';
 import { AuthUser, JsonResponse } from '@nibyou/types';
-import { SetKeyDto } from './dtos/set-key.dto';
+import { KeySetDto, SetKeyDto } from './dtos/set-key.dto';
+import { GetKeyDto } from './dtos/get-key.dto';
 
 @ApiBearerAuth()
 @ApiTags('Key')
@@ -47,11 +48,9 @@ export class KeyController {
   async setKey(
     @Body() body: SetKeyDto,
     @AuthenticatedUser() user: AuthUser,
-  ): Promise<JsonResponse> {
-    const setKeyResponse = await this.keyService.setKey(body.value, user);
-    return new JsonResponse()
-      .setMessage('Key set successfully')
-      .setData(setKeyResponse);
+  ): Promise<KeySetDto> {
+    const setKeyResponse = await this.keyService.setKey(body.key, user);
+    return { key: setKeyResponse };
   }
 
   @ApiOperation({
@@ -60,7 +59,7 @@ export class KeyController {
   })
   @ApiCreatedResponse({
     description: 'Returns a Public RSA Key for a given ID',
-    type: JsonResponse,
+    type: GetKeyDto,
   })
   @ApiNotFoundResponse({
     description: 'Returns a 404 if the key does not exist',
@@ -68,7 +67,7 @@ export class KeyController {
   })
   @Public()
   @Get(':id')
-  async getKey(@Param('id') id: string): Promise<JsonResponse | HttpException> {
+  async getKey(@Param('id') id: string): Promise<GetKeyDto> {
     const key = await this.keyService.getKey(id);
     if (!key) {
       throw new HttpException(
@@ -76,8 +75,6 @@ export class KeyController {
         404,
       );
     }
-    return new JsonResponse()
-      .setMessage('Key retrieved successfully')
-      .setData(key);
+    return { key };
   }
 }
