@@ -29,6 +29,7 @@ export class KeyController {
   @ApiOperation({
     summary: 'Get Ping Response',
     description: 'Returns a Redis ping response',
+    operationId: 'getPing',
   })
   @Get('ping')
   async ping(): Promise<JsonResponse> {
@@ -39,6 +40,7 @@ export class KeyController {
   @ApiOperation({
     summary: 'Set Key',
     description: 'Sets a key with a value for the current user',
+    operationId: 'setKey',
   })
   @ApiBody({
     description: 'Set a key with a value for the current user',
@@ -56,6 +58,7 @@ export class KeyController {
   @ApiOperation({
     summary: 'Get Key',
     description: 'Returns a Public RSA Key for a given ID',
+    operationId: 'getKey',
   })
   @ApiCreatedResponse({
     description: 'Returns a Public RSA Key for a given ID',
